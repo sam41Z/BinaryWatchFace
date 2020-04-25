@@ -1,0 +1,13 @@
+<drawables>
+    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <bitmap id="HeartOutlined" filename="heart_outlined.png" />
+    <bitmap id="HeartOutlinedLarge" filename="heart_outlined_large.png" />
+    <bitmap id="HeartOutlinedMedium" filename="heart_outlined_medium.png" />
+    <bitmap id="HeartFilled" filename="heart_filled.png" />
+    <bitmap id="HeartFilledLarge" filename="heart_filled_large.png" />
+    <bitmap id="HeartFilledMedium" filename="heart_filled_medium.png" />
+    <bitmap id="HeartFilledMediumCurrent" filename="heart_filled_medium_current.png" />
+    <bitmap id="HeartFilledMediumOld" filename="heart_filled_medium_old.png" />
+    <bitmap id="BatteryFilled" filename="battery_filled.png" />
+    <bitmap id="BatteryOutlined" filename = "battery_outlined.png" />
+</drawables>
