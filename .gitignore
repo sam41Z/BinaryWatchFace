@@ -1,4 +1,5 @@
 *.iml
+binary.prg*
 *.der
 *.pem
 .idea/
