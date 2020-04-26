@@ -1,5 +1,6 @@
 *.iml
-binary.prg*
+*.prg*
+*.iq
 *.der
 *.pem
 .idea/
