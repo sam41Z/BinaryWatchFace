@@ -51,7 +51,6 @@ class BinaryWFView extends WatchUi.WatchFace {
         var hour = now.hour;
         var minute = now.min;
 
-
         var roundMargin = System.getDeviceSettings().screenShape == System.SCREEN_SHAPE_ROUND ? dc.getHeight() / 10 : 0;
         var batteryHeight = batteryFilled.getHeight();
         var heartHeight = heartFilled.getHeight();
@@ -64,9 +63,9 @@ class BinaryWFView extends WatchUi.WatchFace {
         var mediumSpacer = (freeSpace / 6).toLong();
         var largeSpacer = (freeSpace / 3.3).toLong();
 
-        var battery = (System.getSystemStats().battery * 100).toLong();
+        var battery = System.getSystemStats().battery.toLong();
         var batteryTop = smallSpacer + roundMargin;
-        new BinaryBitmap(dc, batteryTop, 4, 8, 0, batteryFilled, batteryOutlined).drawBinary(battery);
+        new BinaryBitmap(dc, batteryTop, 4, 7, 0, batteryFilled, batteryOutlined).drawBinary(battery);
 
         var heartRate = getHeartRate();
         var heartOne = heartFilled;
