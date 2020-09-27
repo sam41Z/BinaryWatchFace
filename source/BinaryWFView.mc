@@ -25,7 +25,8 @@ class BinaryWFView extends WatchUi.WatchFace {
     var heartOutlined;
     var batteryFilled;
     var batteryOutlined;
-
+    var backgroundLoader;
+    var weekdayBitmap;
 
     // Called when this View is brought to the foreground. Restore
     // the state of this View and prepare it to be shown. This includes
@@ -37,6 +38,7 @@ class BinaryWFView extends WatchUi.WatchFace {
         heartOutlined = WatchUi.loadResource(Rez.Drawables.HeartOutlinedMedium);
         batteryFilled = WatchUi.loadResource(Rez.Drawables.BatteryFilled);
         batteryOutlined = WatchUi.loadResource(Rez.Drawables.BatteryOutlined);
+        weekdayBitmap = new WeekdayBitmap();
     }
 
     // Update the view
@@ -79,6 +81,9 @@ class BinaryWFView extends WatchUi.WatchFace {
         new BinaryBitmap(dc, hrTop, 4, 8, 0, heartOne, heartOutlined).drawBinary(heartRate["heartRate"]);
 
         var timeTop = hrTop + largeSpacer;
+        var weekDayStart = dc.getWidth() / 2 - 8.3 * timeRadius;
+        weekdayBitmap.getBitmap(now.day_of_week, weekDayStart, hrTop + mediumSpacer).draw(dc);
+
         new BinaryCircle(dc, timeRadius * 2, timeTop, timeRadius, 5, Graphics.COLOR_GREEN, timeRadius * 1.5).drawBinary(hour);
         new BinaryCircle(dc, timeRadius * 2, timeTop + 3 * timeRadius, timeRadius, 6, Graphics.COLOR_PINK, 0).drawBinary(minute);
 
@@ -207,5 +212,33 @@ class BinaryBitmap extends BinaryCircle {
     protected function drawZero(xTop, yTop, size) {
          dc.drawBitmap(xTop, yTop, zeroBitmap);
     }
-
 }
+
+class WeekdayBitmap {
+    private var index;
+    private var bitmap;
+    var resources = [
+        Rez.Drawables.Sunday,
+        Rez.Drawables.Monday,
+        Rez.Drawables.Tuesday,
+        Rez.Drawables.Wednesday,
+        Rez.Drawables.Thursday,
+        Rez.Drawables.Friday,
+        Rez.Drawables.Saturday
+     ];
+
+    public function getBitmap(weekday, x, y) {
+        if (index != weekday) {
+          index = weekday;
+          System.println(index);
+          bitmap = null;
+          bitmap = new WatchUi.Bitmap({
+                :rezId=>resources[ index -1 ],
+                :locX=>x,
+                :locY=>y,
+            });
+        }
+        return bitmap;
+    }
+}
+

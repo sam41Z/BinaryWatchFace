@@ -10,4 +10,11 @@
     <bitmap id="HeartFilledMediumOld" filename="heart_filled_medium_old.png" />
     <bitmap id="BatteryFilled" filename="battery_filled.png" />
     <bitmap id="BatteryOutlined" filename = "battery_outlined.png" />
+    <bitmap id="Monday" filename="monday.png"/>
+    <bitmap id="Tuesday" filename="tuesday.png"/>
+    <bitmap id="Wednesday" filename="wednesday.png"/>
+    <bitmap id="Thursday" filename="thursday.png" />
+    <bitmap id="Friday" filename="friday.png" />
+    <bitmap id="Saturday" filename="saturday.png" />
+    <bitmap id="Sunday" filename="sunday.png" />
 </drawables>
